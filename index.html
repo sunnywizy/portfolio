@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                DEFAULT: "#7C3AED",
+                light: "#A78BFA",
+                dark: "#6D28D9",
+              },
+            },
+            fontFamily: {
+              brand: ["Poppins", "sans-serif"],
+            },
+            keyframes: {
+              "slide-in-bounce": {
+                "0%": {
+                  opacity: "0",
+                  transform: "translateX(80px) translateY(24px)",
+                },
+                "60%": {
+                  opacity: "1",
+                  transform: "translateX(-10px) translateY(-4px)",
+                },
+                "80%": {
+                  transform: "translateX(4px) translateY(2px)",
+                },
+                "100%": {
+                  opacity: "1",
+                  transform: "translateX(0) translateY(0)",
+                },
+              },
+              "hover-bounce": {
+                "0%": {
+                  transform: "translateY(0)",
+                },
+                "40%": {
+                  transform: "translateY(-14px)",
+                },
+                "70%": {
+                  transform: "translateY(5px)",
+                },
+                "100%": {
+                  transform: "translateY(0)",
+                },
+              },
+            },
+            animation: {
+              "slide-in-bounce": "slide-in-bounce 900ms ease-out both",
+              "hover-bounce": "hover-bounce 650ms ease-out",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @keyframes about-slide-in {
+        0% {
+          opacity: 0;
+          transform: translateX(80px) translateY(24px);
+        }
+        60% {
+          opacity: 1;
+          transform: translateX(-10px) translateY(-4px);
+        }
+        80% {
+          transform: translateX(4px) translateY(2px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0) translateY(0);
+        }
+      }
+
+      @keyframes about-bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-14px);
+        }
+        70% {
+          transform: translateY(5px);
+        }
+      }
+
+      #about-image-card {
+        opacity: 0;
+        transform: translateX(80px) translateY(24px);
+      }
+
+      #about-image-card.is-visible {
+        animation: about-slide-in 900ms ease-out forwards;
+      }
+
+      #about-image-card.is-bouncing {
+        animation: about-bounce 650ms ease-out;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #about-image-card,
+        #about-image-card.is-visible,
+        #about-image-card.is-bouncing {
+          opacity: 1;
+          transform: none;
+          animation: none;
+        }
+      }
+    </style>
+    <title>Portfolio | Home</title>
+  </head>
+  <body
+    class="bg-slate-950 font-brand text-white antialiased selection:bg-brand/30 selection:text-white"
+  >
+    <!-- Fixed navigation bar -->
+    <header
+      class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur-xl"
+    >
+      <nav
+        class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-10 lg:px-16"
+        aria-label="Main navigation"
+      >
+        <a href="#" class="text-xl font-bold tracking-tight">
+          Nwaeze<span class="text-brand-light">.dev</span>
+        </a>
+
+        <div class="hidden items-center gap-8 text-sm text-slate-300 md:flex">
+          <a href="#" class="text-white transition hover:text-brand-light"
+            >Home</a
+          >
+          <a href="#about" class="transition hover:text-brand-light">About</a>
+          <a href="#work" class="transition hover:text-brand-light">Projects</a>
+          <a href="#contact" class="transition hover:text-brand-light"
+            >Contact</a
+          >
+        </div>
+
+        <a
+          href="#contact"
+          class="rounded-lg border border-brand/60 px-4 py-2 text-sm font-medium text-brand-light transition hover:bg-brand hover:text-white"
+        >
+          Let’s connect
+        </a>
+      </nav>
+    </header>
+
+    <!-- Hero section -->
+    <main
+      class="relative flex min-h-screen items-center overflow-hidden bg-cover bg-center"
+      style="background-image: url(&quot;./images/Hero_background.jpg&quot;)"
+    >
+      <div class="absolute inset-0 bg-slate-950/65"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-slate-950/20"
+      ></div>
+
+      <div
+        class="relative mx-auto w-full max-w-7xl px-6 pb-24 pt-36 sm:px-10 lg:px-16"
+      >
+        <section class="max-w-4xl">
+          <p
+            class="mb-5 flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-brand-light"
+          >
+            <span class="h-px w-8 bg-brand"></span>
+            Frontend developer & designer
+          </p>
+          <h1
+            class="text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-8xl"
+          >
+            Building products
+            <span class="block text-brand-light">people remember.</span>
+          </h1>
+          <p
+            class="mt-6 max-w-xl text-lg leading-relaxed text-slate-200 sm:text-xl"
+          >
+            I create clean, responsive and user-friendly web experiences by
+            combining frontend development with a strong graphic design eye.
+          </p>
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a
+              href="#work"
+              class="rounded-full bg-brand px-7 py-3 font-semibold text-white transition hover:bg-brand-dark"
+            >
+              View my work
+            </a>
+            <a
+              href="#about"
+              class="rounded-full border border-white/40 px-7 py-3 font-semibold transition hover:border-white hover:bg-white/10"
+            >
+              About me
+            </a>
+          </div>
+        </section>
+
+        <div
+          class="absolute bottom-8 left-6 flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-slate-300 sm:left-10 lg:left-16"
+        >
+          <span class="h-px w-10 bg-brand"></span>
+          Scroll to explore
+        </div>
+      </div>
+    </main>
+
+    <!-- About Me section -->
+    <section
+      id="about"
+      class="relative overflow-hidden border-t border-white/5 bg-slate-900/60 py-24 sm:py-28"
+    >
+      <div
+        class="pointer-events-none absolute -left-40 top-20 h-80 w-80 rounded-full bg-brand/10 blur-3xl"
+        aria-hidden="true"
+      ></div>
+      <div
+        class="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-brand/5 blur-3xl"
+        aria-hidden="true"
+      ></div>
+      <div class="mx-auto max-w-7xl px-6 lg:px-16">
+        <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div class="order-2 lg:order-1">
+            <p
+              class="text-sm font-semibold uppercase tracking-wide text-brand-light"
+            >
+              About
+            </p>
+            <h2 class="mt-3 text-3xl font-bold text-white sm:text-4xl">
+              I’m Nwaeze — a frontend developer with a designer’s eye
+            </h2>
+            <p
+              class="mt-5 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg"
+            >
+              I’m an early-career frontend developer focused on creating clean,
+              responsive, and user-friendly websites. With a background in
+              graphic design, I combine visual thinking with modern frontend
+              development to turn ideas into engaging digital experiences. I’m
+              always learning, refining my craft, and looking for opportunities
+              to build useful products.
+            </p>
+
+            <ul
+              class="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3"
+              aria-label="Technical skills"
+            >
+              <li
+                class="inline-flex items-center justify-center rounded-full bg-white/5 px-3 py-2 text-sm font-medium text-slate-200"
+              >
+                HTML
+              </li>
+              <li
+                class="inline-flex items-center justify-center rounded-full bg-white/5 px-3 py-2 text-sm font-medium text-slate-200"
+              >
+                CSS
+              </li>
+              <li
+                class="inline-flex items-center justify-center rounded-full bg-white/5 px-3 py-2 text-sm font-medium text-slate-200"
+              >
+                JavaScript
+              </li>
+
+              <li
+                class="inline-flex items-center justify-center rounded-full bg-white/5 px-3 py-2 text-sm font-medium text-slate-200"
+              >
+                Tailwind CSS
+              </li>
+              <li
+                class="inline-flex items-center justify-center rounded-full bg-white/5 px-3 py-2 text-sm font-medium text-slate-200"
+              >
+                Design Systems
+              </li>
+            </ul>
+
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a
+                href="#contact"
+                class="inline-flex items-center rounded-md bg-brand px-5 py-3 font-semibold text-white transition hover:bg-brand-dark"
+                >Hire me</a
+              >
+              <a
+                href="#work"
+                class="inline-flex items-center rounded-md border border-white/20 px-5 py-3 text-sm text-white transition hover:bg-white/5"
+                >See projects</a
+              >
+            </div>
+          </div>
+
+          <div class="order-1 flex justify-center lg:order-2 lg:justify-end">
+            <div
+              id="about-image-card"
+              class="group relative w-full max-w-sm overflow-hidden rounded-2xl bg-slate-800 p-2 shadow-2xl shadow-black/30 ring-1 ring-white/10 transition duration-500 ease-out hover:shadow-brand/20"
+            >
+              <img
+                src="./images/About_me_image.jpg"
+                alt="About Nwaeze"
+                class="h-80 w-full rounded-xl object-cover transition duration-700 ease-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100 sm:h-96"
+              />
+              <span
+                class="pointer-events-none absolute inset-0 bg-brand/0 transition duration-500 group-hover:bg-brand/15 motion-reduce:transition-none"
+                aria-hidden="true"
+              ></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects section -->
+    <section
+      id="work"
+      class="border-t border-white/5 bg-slate-950 py-24 sm:py-28"
+    >
+      <div class="mx-auto max-w-7xl px-6 lg:px-16">
+        <div
+          class="flex flex-col justify-between gap-6 sm:flex-row sm:items-end"
+        >
+          <div>
+            <p
+              class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-light"
+            >
+              Selected work
+            </p>
+            <h2 class="mt-3 text-3xl font-bold sm:text-4xl">
+              Projects I’m proud of
+            </h2>
+            <p class="mt-4 max-w-2xl text-slate-400">
+              A selection of interfaces, websites, and visual work built with
+              purpose and attention to detail.
+            </p>
+          </div>
+
+          <div
+            class="flex w-full rounded-xl border border-white/10 bg-white/5 p-1 sm:w-auto"
+            role="tablist"
+            aria-label="Project categories"
+          >
+            <button
+              id="frontend-tab"
+              type="button"
+              class="project-filter rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white transition"
+              data-filter="frontend"
+              aria-controls="frontend-projects"
+              role="tab"
+              aria-selected="true"
+            >
+              Frontend projects
+            </button>
+            <button
+              id="graphic-tab"
+              type="button"
+              class="project-filter rounded-lg px-4 py-2 text-sm font-semibold text-slate-400 transition hover:text-white"
+              data-filter="graphic"
+              aria-controls="graphic-projects"
+              role="tab"
+              aria-selected="false"
+            >
+              Graphic projects
+            </button>
+          </div>
+        </div>
+
+        <div
+          id="frontend-projects"
+          class="project-panel mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+          role="tabpanel"
+          aria-labelledby="frontend-tab"
+          aria-hidden="false"
+        >
+          <a
+            href="https://laundvend.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-light focus:ring-offset-2 focus:ring-offset-slate-950"
+          >
+            <article
+              class="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900 transition duration-300 hover:-translate-y-2 hover:border-brand/60"
+            >
+              <div class="relative h-48 overflow-hidden">
+                <img
+                  src="./images/Laundvend.png"
+                  alt="Laundvend project preview"
+                  class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                />
+                <span
+                  class="absolute left-4 top-4 rounded-full bg-slate-950/70 px-3 py-1 text-xs text-violet-100 backdrop-blur-sm"
+                  >Web application</span
+                >
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold">Laundvend</h3>
+                <p class="mt-3 text-sm leading-7 text-slate-400">
+                  Laundvend is a modern laundry service website designed to make
+                  booking, service selection, and order tracking simple for
+                  customers. The interface focuses on clarity, credibility, and
+                  a smooth mobile-friendly user flow.
+                </p>
+                <p
+                  class="mt-5 text-xs font-semibold uppercase tracking-wider text-brand-light"
+                >
+                  HTML · CSS · JavaScript
+                </p>
+              </div>
+            </article>
+          </a>
+          <a
+            href="https://sunnywizy.github.io/school_page/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-light focus:ring-offset-2 focus:ring-offset-slate-950"
+          >
+            <article
+              class="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900 transition duration-300 hover:-translate-y-2 hover:border-brand/60"
+            >
+              <div class="relative h-48 overflow-hidden">
+                <img
+                  src="./images/Getschooled.png"
+                  alt="Getschooled project preview"
+                  class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                />
+                <span
+                  class="absolute left-4 top-4 rounded-full bg-slate-950/70 px-3 py-1 text-xs text-fuchsia-100 backdrop-blur-sm"
+                  >Landing page</span
+                >
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold">Getschooled Site</h3>
+                <p class="mt-3 text-sm leading-7 text-slate-400">
+                  Getschooled is a school-focused landing page built to present
+                  academic programs, values, and enrollment information in a
+                  clean, engaging way. The design balances strong visuals with
+                  easy navigation for visitors and prospective students.
+                </p>
+                <p
+                  class="mt-5 text-xs font-semibold uppercase tracking-wider text-brand-light"
+                >
+                  HTML · CSS · JavaScript
+                </p>
+              </div>
+            </article>
+          </a>
+
+          <a
+            href="https://sunnywizy.github.io/NwaeModern/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-light focus:ring-offset-2 focus:ring-offset-slate-950"
+          >
+            <article
+              class="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900 transition duration-300 hover:-translate-y-2 hover:border-brand/60"
+            >
+              <div class="relative h-48 overflow-hidden">
+                <img
+                  src="./images/NwaeModern.png"
+                  alt="NwaeModern project preview"
+                  class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                />
+                <span
+                  class="absolute left-4 top-4 rounded-full bg-slate-950/70 px-3 py-1 text-xs text-indigo-100 backdrop-blur-sm"
+                  >Landing Page</span
+                >
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold">Nwaemodern</h3>
+                <p class="mt-3 text-sm leading-7 text-slate-400">
+                  This portfolio showcases my design-driven frontend work,
+                  creative process, and project experience in a clean and modern
+                  layout. It highlights both technical skills and a strong
+                  visual sense for building memorable digital experiences.
+                </p>
+                <p
+                  class="mt-5 text-xs font-semibold uppercase tracking-wider text-brand-light"
+                >
+                  HTML · Tailwind CSS · JavaScript
+                </p>
+              </div>
+            </article>
+          </a>
+        </div>
+
+        <div
+          id="graphic-projects"
+          class="project-panel mt-12 hidden gap-6 md:grid-cols-2 lg:grid-cols-3"
+          role="tabpanel"
+          aria-labelledby="graphic-tab"
+          aria-hidden="true"
+        >
+          <article
+            class="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900 transition duration-300 hover:-translate-y-2 hover:border-brand/60"
+          >
+            <div
+              class="flex h-48 items-end bg-gradient-to-br from-amber-300 via-orange-500 to-rose-700 p-6"
+            >
+              <span
+                class="rounded-full bg-black/20 px-3 py-1 text-xs text-white"
+                >Brand identity</span
+              >
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold">Brand identity system</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-400">
+                A visual identity direction with color, typography, and graphic
+                elements working together.
+              </p>
+              <p
+                class="mt-5 text-xs font-semibold uppercase tracking-wider text-brand-light"
+              >
+                Branding · Art direction
+              </p>
+            </div>
+          </article>
+
+          <article
+            class="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900 transition duration-300 hover:-translate-y-2 hover:border-brand/60"
+          >
+            <div
+              class="flex h-48 items-end bg-gradient-to-br from-cyan-300 via-blue-600 to-indigo-900 p-6"
+            >
+              <span
+                class="rounded-full bg-black/20 px-3 py-1 text-xs text-white"
+                >Social campaign</span
+              >
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold">Social media campaign</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-400">
+                A set of campaign graphics created to communicate a clear
+                message across social platforms.
+              </p>
+              <p
+                class="mt-5 text-xs font-semibold uppercase tracking-wider text-brand-light"
+              >
+                Visual design · Layout
+              </p>
+            </div>
+          </article>
+
+          <article
+            class="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900 transition duration-300 hover:-translate-y-2 hover:border-brand/60"
+          >
+            <div
+              class="flex h-48 items-end bg-gradient-to-br from-lime-300 via-emerald-600 to-teal-950 p-6"
+            >
+              <span
+                class="rounded-full bg-black/20 px-3 py-1 text-xs text-white"
+                >Print design</span
+              >
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold">Editorial poster series</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-400">
+                A poster exploration using strong type, contrast, and
+                composition to create visual impact.
+              </p>
+              <p
+                class="mt-5 text-xs font-semibold uppercase tracking-wider text-brand-light"
+              >
+                Typography · Composition
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact section -->
+    <section
+      id="contact"
+      class="border-t border-white/5 bg-slate-900/60 py-24 sm:py-28"
+    >
+      <div class="mx-auto max-w-7xl px-6 lg:px-16">
+        <div class="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <div>
+            <p
+              class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-light"
+            >
+              Contact
+            </p>
+            <h2 class="mt-3 text-3xl font-bold sm:text-4xl">
+              Let’s build something meaningful.
+            </h2>
+            <p class="mt-5 max-w-lg text-base leading-8 text-slate-300">
+              Have an idea, a project, or an opportunity to discuss? Send me a
+              message and tell me how I can help bring it to life.
+            </p>
+
+            <div
+              class="mt-8 rounded-2xl border border-brand/20 bg-brand/10 p-6"
+            >
+              <p class="text-sm font-semibold text-brand-light">
+                Currently available
+              </p>
+              <p class="mt-2 text-sm leading-7 text-slate-300">
+                I’m open to frontend projects, creative collaborations, and
+                opportunities to grow with a great team.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="rounded-2xl border border-white/10 bg-slate-950/70 p-6 shadow-2xl shadow-black/20 sm:p-8"
+          >
+            <h3 class="text-xl font-semibold text-white">Find me online</h3>
+            <p class="mt-2 text-sm leading-7 text-slate-400">
+              Connect with me through any of these platforms. I would love to
+              hear about your next project.
+            </p>
+
+            <div class="mt-6 grid gap-3 sm:grid-cols-2">
+              <a
+                href="https://github.com/sunnywizy"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit my GitHub profile"
+                class="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-4 transition hover:border-brand/60 hover:bg-brand/10"
+              >
+                <span
+                  class="flex h-11 w-11 items-center justify-center rounded-lg bg-white/10 text-brand-light transition group-hover:bg-brand group-hover:text-white"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="h-6 w-6 fill-current"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M12 .5A12 12 0 0 0 8.2 23.9c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.8-1.3-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.4-5.5-6A4.7 4.7 0 0 1 4.8 8c-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.4 1.3a11.5 11.5 0 0 1 6.2 0c2.4-1.6 3.4-1.3 3.4-1.3.6 1.7.2 3 .1 3.3a4.7 4.7 0 0 1 1.2 3.3c0 4.6-2.8 5.7-5.5 6 .4.3.8 1 .8 2v3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"
+                    />
+                  </svg>
+                </span>
+                <span>
+                  <span class="block font-medium text-white">GitHub</span>
+                  <span class="text-sm text-slate-400">View my code</span>
+                </span>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/obasi-sunday-93470626a/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit my LinkedIn profile"
+                class="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-4 transition hover:border-brand/60 hover:bg-brand/10"
+              >
+                <span
+                  class="flex h-11 w-11 items-center justify-center rounded-lg bg-white/10 text-brand-light transition group-hover:bg-brand group-hover:text-white"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="h-6 w-6 fill-current"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M5.2 3.5A2.2 2.2 0 1 1 5.2 8a2.2 2.2 0 0 1 0-4.5ZM3.3 9.8h3.8V21H3.3V9.8Zm6.2 0h3.6v1.5h.1c.5-.9 1.7-1.9 3.6-1.9 3.8 0 4.5 2.5 4.5 5.8V21h-3.8v-5.1c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21H9.5V9.8Z"
+                    />
+                  </svg>
+                </span>
+                <span>
+                  <span class="block font-medium text-white">LinkedIn</span>
+                  <span class="text-sm text-slate-400">Let’s connect</span>
+                </span>
+              </a>
+
+              <a
+                href="https://www.instagram.com/sundayobasi222/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit my Instagram profile"
+                class="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-4 transition hover:border-brand/60 hover:bg-brand/10"
+              >
+                <span
+                  class="flex h-11 w-11 items-center justify-center rounded-lg bg-white/10 text-brand-light transition group-hover:bg-brand group-hover:text-white"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="h-6 w-6 fill-none stroke-current stroke-2"
+                    aria-hidden="true"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle
+                      cx="17.5"
+                      cy="6.5"
+                      r="1"
+                      class="fill-current stroke-none"
+                    />
+                  </svg>
+                </span>
+                <span>
+                  <span class="block font-medium text-white">Instagram</span>
+                  <span class="text-sm text-slate-400">See my design work</span>
+                </span>
+              </a>
+
+              <a
+                href="mailto:sundayobasi222@gmail.com"
+                aria-label="Send me an email"
+                class="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-4 transition hover:border-brand/60 hover:bg-brand/10"
+              >
+                <span
+                  class="flex h-11 w-11 items-center justify-center rounded-lg bg-white/10 text-brand-light transition group-hover:bg-brand group-hover:text-white"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="h-6 w-6 fill-none stroke-current stroke-2"
+                    aria-hidden="true"
+                  >
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <path d="m3 7 9 6 9-6" />
+                  </svg>
+                </span>
+                <span>
+                  <span class="block font-medium text-white">Email</span>
+                  <span class="text-sm text-slate-400"
+                    >Start a conversation</span
+                  >
+                </span>
+              </a>
+
+              <a
+                href="tel:+2347019115960"
+                aria-label="Call me at plus 234 701 911 5960"
+                class="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-4 transition hover:border-brand/60 hover:bg-brand/10 sm:col-span-2"
+              >
+                <span
+                  class="flex h-11 w-11 items-center justify-center rounded-lg bg-white/10 text-brand-light transition group-hover:bg-brand group-hover:text-white"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="h-6 w-6 fill-none stroke-current stroke-2"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M6.6 3.2 8.8 2.7c.7-.2 1.4.2 1.7.8l1.1 2.6c.2.5.1 1.1-.3 1.5L10 8.9a14.5 14.5 0 0 0 5.1 5.1l1.3-1.3c.4-.4 1-.5 1.5-.3l2.6 1.1c.6.3 1 .9.8 1.6l-.5 2.3c-.2.8-.9 1.4-1.7 1.4C11.9 18.8 5.2 12.1 5.2 4.9c0-.8.6-1.5 1.4-1.7Z"
+                    />
+                  </svg>
+                </span>
+                <span>
+                  <span class="block font-medium text-white">Phone</span>
+                  <span class="text-sm text-slate-400">+234 701 911 5960</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer section -->
+    <footer class="border-t border-white/10 bg-slate-950">
+      <div class="mx-auto max-w-7xl px-6 py-12 lg:px-16">
+        <div class="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+          <div>
+            <a href="#" class="text-xl font-bold tracking-tight">
+              Nwaeze<span class="text-brand-light">.dev</span>
+            </a>
+            <p class="mt-3 max-w-sm text-sm leading-7 text-slate-400">
+              Frontend developer and designer creating thoughtful digital
+              experiences that people remember.
+            </p>
+          </div>
+
+          <nav aria-label="Footer navigation">
+            <ul class="flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-400">
+              <li><a href="#" class="transition hover:text-brand-light">Home</a></li>
+              <li><a href="#about" class="transition hover:text-brand-light">About</a></li>
+              <li><a href="#work" class="transition hover:text-brand-light">Projects</a></li>
+              <li><a href="#contact" class="transition hover:text-brand-light">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            &copy; <span id="current-year"></span> Nwaeze.dev. All rights reserved.
+          </p>
+          <p>Designed and built with care.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
